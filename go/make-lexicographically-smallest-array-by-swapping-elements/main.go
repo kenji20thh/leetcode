@@ -12,7 +12,7 @@ func lexicographicallySmallestArray(nums []int, limit int) []int {
 		for i := 0; i < len(nums)-1; i++ {
 			min := slices.Min(nums[i:])
 			minIndex := slices.Index(nums[i:], min) + i
-			if minIndex != i && Abs(nums[i], min) < limit {
+			if minIndex != i && Abs(nums[i], min) <= limit {
 				nums[i], nums[minIndex] = nums[minIndex], nums[i]
 				gotIt = false
 			}
